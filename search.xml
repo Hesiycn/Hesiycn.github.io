@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>buu[ACTF新生赛2020]usualCrypt</title>
+      <link href="/2024/06/04/%5BACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020%5DusualCrypt/"/>
+      <url>/2024/06/04/%5BACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020%5DusualCrypt/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ACTF新生赛2020-usualCrypt"><a href="#ACTF新生赛2020-usualCrypt" class="headerlink" title="[ACTF新生赛2020]usualCrypt"></a>[ACTF新生赛2020]usualCrypt</h1><p>打开main函数</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/%5BACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020%5DusualCrypt/image-20240530175759195.png" alt="image-20240530175759195"></p><p>查看sub_401080</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/%5BACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020%5DusualCrypt/image-20240530175917912.png" alt="image-20240530175917912"></p><p>发现是base64加密</p><p>跟进sub_401000</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/%5BACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020%5DusualCrypt/image-20240530175951159.png" alt="image-20240530175951159"></p><p>发现是将base64的序列码改变了</p><p>回到上一级查看sub_401030</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/%5BACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020%5DusualCrypt/image-20240530180043233.png" alt="image-20240530180043233"></p><p>这是一个大小写切换程序</p><p>回到main函数查看aZmxhz3tignxlxj</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/%5BACTF%E6%96%B0%E7%94%9F%E8%B5%9B2020%5DusualCrypt/image-20240530180237393.png" alt="image-20240530180237393"></p><p>这是加密后的字符串</p><p>所以只要将这个字符串的大小写切换并且用魔改的base64解密就得到了flag</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line">string=<span class="string">&#x27;zMXHz3TIgnxLxJhFAdtZn2fFk3lYCrtPC2l9&#x27;</span>.swapcase()<span class="comment">#大小写转换</span></span><br><span class="line">tables64=<span class="string">&#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span><span class="comment">#原来的base64表</span></span><br><span class="line">newtable=<span class="string">&#x27;ABCDEFQRSTUVWXYPGHIJKLMNOZabcdefghijklmnopqrstuvwxyz0123456789+/&#x27;</span><span class="comment">#现在表</span></span><br><span class="line">maketrans=<span class="built_in">str</span>.maketrans(newtable,tables64)<span class="comment">#不会，记住吧，铁子们</span></span><br><span class="line">translate=string.translate(maketrans)</span><br><span class="line">flag=base64.b64decode(string.translate(<span class="built_in">str</span>.maketrans(newtable,tables64)))</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>buu[HDCTF]MAZE</title>
       <link href="/2024/06/04/%5BHDCTF2019%5DMaze/"/>
       <url>/2024/06/04/%5BHDCTF2019%5DMaze/</url>
@@ -57,9 +70,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -68,9 +81,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
