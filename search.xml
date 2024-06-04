@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2024/06/04/%5BHDCTF2019%5DMaze/"/>
+      <url>/2024/06/04/%5BHDCTF2019%5DMaze/</url>
+      
+        <content type="html"><![CDATA[<h2 id="HDCTF2019-Maze"><a href="#HDCTF2019-Maze" class="headerlink" title="[HDCTF2019]Maze"></a>[HDCTF2019]Maze</h2><p>这个题主要是学习花指令的去除，迷宫并不难</p><p>不过在使用upx去壳前需要把文件名中的空格去除，否则会脱壳失败</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/hdctfmaze/hdmaze01.png" alt="hdmaze01"></p><p>（花指令的有关内容相关请看以下文章）</p><p><a href="https://bbs.kanxue.com/thread-279604.htm">https://bbs.kanxue.com/thread-279604.htm</a></p><p><a href="https://blog.csdn.net/abel_big_xu/article/details/117927674">https://blog.csdn.net/abel_big_xu/article/details/117927674</a></p><p><a href="https://blog.csdn.net/m0_46296905/article/details/117336574">https://blog.csdn.net/m0_46296905/article/details/117336574</a></p><p>然后拖入ida中发现有花指令</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/hdctfmaze/hdmaze02.png" alt="hdmaze02"></p><p>摁u转换成二进制</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/hdctfmaze/hdmaze03.png" alt="hdmaze03"></p><p>摁c重新分析为代码</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/hdctfmaze/hdmaze04.png" alt="hdmaze04"></p><p>选定全部的红色地址摁p进行生成函数</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/hdctfmaze/hdmaze05.png" alt="hdmaze05"></p><p>这时main函数就被解出来了然后进入点击f5</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/hdctfmaze/hdmaze06.png" alt="hdmaze06"></p><p>asc_408078和dword_40807c只要放在哪就行,</p><p>但是w（上）s（下）a（左）d（右）考虑的就比较多了</p><p>shift+f12查看字符串表找到迷宫地图</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/hdctfmaze/hdmaze07.png" alt="hdmaze07"></p><p>长度是70个字符，可能是7*10或者10*7（建议去一些编程环境内进行排列，有字符自动对齐）</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/hdctfmaze/hdmaze08.png" alt="hdmaze08"></p><p>flag就是通关迷宫时键盘的输入</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>LitCTF2024逆向wp</title>
       <link href="/2024/06/03/litctf24%EF%BC%88%E9%83%BD%E6%98%AF%E8%80%BB%E8%BE%B1%EF%BC%89/"/>
       <url>/2024/06/03/litctf24%EF%BC%88%E9%83%BD%E6%98%AF%E8%80%BB%E8%BE%B1%EF%BC%89/</url>
@@ -33,17 +46,6 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/css/transpancy.css"/>
       <url>/css/transpancy.css</url>
@@ -55,9 +57,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -69,6 +71,17 @@
       <title>navigate</title>
       <link href="/navigate/index.html"/>
       <url>/navigate/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
