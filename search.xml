@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>DOS头-PE头-节表属性说明</title>
+      <link href="/2024/07/11/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7/"/>
+      <url>/2024/07/11/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7/</url>
+      
+        <content type="html"><![CDATA[<h1 id="DOS头-PE头-节表属性说明"><a href="#DOS头-PE头-节表属性说明" class="headerlink" title="DOS头-PE头-节表属性说明"></a>DOS头-PE头-节表属性说明</h1><h2 id="DOS头"><a href="#DOS头" class="headerlink" title="DOS头"></a>DOS头</h2><p>dos头由DOS-MZ文件头和DOS块组成</p><h4 id="DOS-MZ文件头"><a href="#DOS-MZ文件头" class="headerlink" title="DOS-MZ文件头"></a>DOS-MZ文件头</h4><p>（下图是16位程序的表，现在已经不用这个结构体）</p><p>&#x3D;&#x3D;<strong>！！！红色结构体成员仍在使用！！！</strong>&#x3D;&#x3D;</p><p><strong>中间黑色成员部分可以随意改动不影响程序的运行</strong></p><p><img src="/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7.assets/DOS-MZ%E7%BB%93%E6%9E%84%E4%BD%93.png" alt="DOS-MZ结构体"></p><p><strong>最后的结构体是计算机查找pe头所在的地址因此也不能随意更改</strong></p><h4 id="DOS块"><a href="#DOS块" class="headerlink" title="DOS块"></a>DOS块</h4><p>处于DOS-MZ头与标准PE头的中间，一般由连接器填充，可以干些猥琐事情</p><p><strong>这块数据可以随意更改不影响程序运行</strong></p><h2 id="PE文件头"><a href="#PE文件头" class="headerlink" title="PE文件头"></a>PE文件头</h2><p>下图是pe结构体</p><p><img src="/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7.assets/pe%E5%A4%B4%E7%BB%93%E6%9E%84%E4%BD%93.png" alt="pe头结构体"></p><p>一个程序的主要重要数据全在标准PE头和扩展PE头中</p><h4 id="PE标识"><a href="#PE标识" class="headerlink" title="PE标识"></a>PE标识</h4><p>占用4字节</p><p>PE标识<strong>不能更改</strong>，程序会检测PE标识是否是正确的值</p><h4 id="标准PE头"><a href="#标准PE头" class="headerlink" title="标准PE头"></a>标准PE头</h4><p>占用20个字节</p><p><img src="/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7.assets/%E6%A0%87%E5%87%86PE%E5%A4%B4%E7%BB%93%E6%9E%84%E4%BD%93.png" alt="标准PE头结构体"></p><p><strong>Machine</strong>标识当前这个程序运行在什么样的cpu型号上</p><p><strong>NumberOfSections</strong>记录当前的PE文件有多少个节</p><p><strong>TImeDataStamp</strong>是从1970年0时0分0秒开始到编译器编译当前程序的时候</p><p>PointerToSymbolTable，NumberOfSymbols与调试相关</p><p><strong>SizeOfOptionalHeader</strong>扩展PE头的大小，默认情况32位是0xE0，64位是0xf0</p><p><strong>Characteristics</strong>表示文件属性，要把该位的16进制转换成2进制，转换成的二进制每一位都有其含义</p><p><img src="/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7.assets/characteristics%E5%90%AB%E4%B9%89%E8%A1%A8.png" alt="characteristics含义表"></p><p>哪位为1，哪位就有相应含义，</p><p><strong>位数是从零开始。从右向左位数递增</strong></p><p>例如0x0026转换成二进制是0000 0000 0010 0110</p><p>其含义是文件是可执行的；不存在行信息；应用程序可处理大于2GB的地址</p><h4 id="扩展PE头"><a href="#扩展PE头" class="headerlink" title="扩展PE头"></a>扩展PE头</h4><p>占用224个字节</p><p><img src="/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7.assets/%E6%89%A9%E5%B1%95pe%E5%A4%B4%E7%BB%93%E6%9E%84%E4%BD%93.png" alt="扩展pe头结构体"></p><p>32位和64位的结构体中最后一个子结构体会不同，</p><p>64位会比32位少几个成员，还有部分成员变成85字节</p><p>先以32位结构体位基准</p><p><img src="/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7.assets/%E6%89%A9%E5%B1%95PE%E5%A4%B4-32%E7%BB%93%E6%9E%84%E4%BD%93.png" alt="扩展PE头-32结构体"></p><p><img src="/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7.assets/%E6%89%A9%E5%B1%95PE%E5%A4%B4%E7%BB%93%E6%9E%84%E4%BD%93-32-02.png" alt="扩展PE头结构体-32-02"></p><p>主要研究红色的部分</p><p><strong>Magic</strong>是用来标识当前程序是32&#x2F;64位，转换成两字节后 <strong>10B是标识32位，20B是标识64位</strong></p><p>BYTE MajorLinkerVersion,BYTE MinorLinkerVersion，存储链接器的版本，由链接器填写，不影响程序运行</p><p>DWORD SizeOfCode，DWORDSizeOfnitializedData，DWORDSizeO fUninitialize dData由编译器填写，不影响程序运行</p><p>&#x3D;&#x3D;<strong>Addre ssOEntrvPoint</strong>&#x3D;&#x3D;是程序入口，是**&#x3D;&#x3D;当前这个程序在哪里开始执行的&#x3D;&#x3D;**，要配合lmageBase（内存镜像基址）来看</p><p>&#x3D;&#x3D;<strong>lmageBase</strong>&#x3D;&#x3D;是内存镜像基址，由它决定&#x3D;&#x3D;<strong>程序在内存执行的时候在哪个地址展开</strong>&#x3D;&#x3D;</p><p><strong>&#x3D;&#x3D;（！！！展开不是执行！！！）&#x3D;&#x3D;</strong></p><p>实际的程序在内存的入口是&#x3D;&#x3D;<strong>lmageBase</strong>&#x3D;&#x3D; <strong>+</strong> &#x3D;&#x3D;<strong>Addre ssOEntrvPoint</strong>&#x3D;&#x3D;</p><p><strong>SectionAlignment. 内存对齐（看上个笔记把）</strong><br><strong>FileAlignment文件对齐（看上个笔记把）</strong></p><p>MajorOperatingSystemVersion:标识损作系统版本号 主版本号</p><p>MinorOperatingSyste mVersion;标识损作系统版本号 次版本号</p><p>MajorlmageVersion.PE文件自身的版本号</p><p>MinorlmageVersionPE文件自身的质本号</p><p>MajorSubsystemVersion运行所需子系统版本号</p><p>MinorSubsystemVersion:运行所需子系统版本号</p><p>Win32VersionValue;子系统质本的值，必须为0</p><p><strong>SizeOfimage.<strong>内存中整个PE文件展开的尺寸，可比实际的值大，必须是</strong>SectionAlignment整数倍</strong><br><strong>SizeOfHeaders</strong>所有头+节表按照文件对齐后的大小，否则加载会出错必须是<strong>FileAlignment整数倍</strong><br><strong>CheckSum（校验盒）</strong>校验和一些系统文件有要求,用来 判断文件是否被修改，两个字节两个字节相加，溢出不用在意，最后加上文件长度</p><p>Subsystem子系统驱动程序(1) 图形界面(2) 控制台、DLL(3)<br>DllCharacteristics文件特性 不是针对DLL文件的，是<strong>描述文件属性</strong></p><p><img src="/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7.assets/DilCharacteristics.png" alt="DilCharacteristics"></p><p>查找方式与上面标准PE头的一样将16进制转换成2进制，2进制的每一位都有各自的含义</p><p>SizeOfStackReserve初始化时保留的栈大小<br>SizeOfStackCommit初始化时实际提交的大小<br>SizeOHeapReserve 始化时保留的雄大小<br>SizeOfHeapCommit初始化时实践提交的大小<br>LoaderFlags  调试相关<br>NumberOfRvaAndSizes  目录项数目</p><p>IMAGE DATA DIRECTORY DataDirectory[IMAGE_NUMBEROF_DIRECTORY_ENTERIES]</p><p>这是个结构体数组，长度是16个字节，有4个DWORD的成员</p><h2 id="节表"><a href="#节表" class="headerlink" title="节表"></a>节表</h2><p>每个节有40个字节</p><p><img src="/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7.assets/%E8%8A%82%E8%A1%A8%E7%BB%93%E6%9E%84%E8%AF%B4%E6%98%8E.png" alt="节表结构说明"></p><p>BYTE NamelIMAGE SIZEOF SHORT_NAME]8字节，当前节的名字，可更改，不影响程序的运行</p><p> <strong>VrtualSize</strong>当前这个节中<strong>没有对齐</strong>后的值，也可以说是当前节<strong>真实的值</strong>是多少</p><p> <strong>VirtualAddress</strong><strong>在内存中的偏移地址,加上ImageBase才是在内存中的真正地址</strong><br><strong>SizeOfRawData</strong>节在<strong>文件中</strong>对齐后的尺寸<br><strong>PointerToRawData</strong>节区在<strong>文件</strong>中的偏移</p><p>当有很大一部分<strong>初始化了的全局变量</strong>， &#x3D;&#x3D;<strong>VrtualSize</strong>值一定小于<strong>SizeOfRawData</strong>&#x3D;&#x3D;</p><p>当有很大一部分<strong>未初始化的全局变量</strong>，在<strong>文件中不给变量分配空间</strong>，但是展开到内存中时要给未初始化的变量初始化，&#x3D;&#x3D;<strong>VrtualSize</strong>会比<strong>SizeOfRawData</strong>大&#x3D;&#x3D;</p><p>这样会让内存很难办，于是内存想**&#x3D;&#x3D;谁大按照谁展开&#x3D;&#x3D;**</p><p><strong>Characteristics</strong>节的属性</p><p>把4字节的16进制转换成2进制后按照对应的位置来查找相关信息</p><p><img src="/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7.assets/%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7%E8%A1%A8.png" alt="节表属性表"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Snack.exe（ver.鸿辉）</title>
       <link href="/2024/07/10/snack.exe/"/>
       <url>/2024/07/10/snack.exe/</url>
@@ -85,6 +98,17 @@
     
     
     <entry>
+      <title>navigate</title>
+      <link href="/navigate/index.html"/>
+      <url>/navigate/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title></title>
       <link href="/css/transpancy.css"/>
       <url>/css/transpancy.css</url>
@@ -99,17 +123,6 @@
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>navigate</title>
-      <link href="/navigate/index.html"/>
-      <url>/navigate/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
