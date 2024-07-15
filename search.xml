@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>【PE】扩大节、新增节、合并节</title>
+      <link href="/2024/07/15/%E6%89%A9%E5%A4%A7%E8%8A%82%E3%80%81%E6%96%B0%E5%A2%9E%E8%8A%82%E3%80%81%E5%90%88%E5%B9%B6%E8%8A%82/"/>
+      <url>/2024/07/15/%E6%89%A9%E5%A4%A7%E8%8A%82%E3%80%81%E6%96%B0%E5%A2%9E%E8%8A%82%E3%80%81%E5%90%88%E5%B9%B6%E8%8A%82/</url>
+      
+        <content type="html"><![CDATA[<h1 id="扩大节、新增节、合并节"><a href="#扩大节、新增节、合并节" class="headerlink" title="扩大节、新增节、合并节"></a>扩大节、新增节、合并节</h1><h2 id="详细查看https-bbs-kanxue-com-thread-281836-htm-msg-header-h3-9"><a href="#详细查看https-bbs-kanxue-com-thread-281836-htm-msg-header-h3-9" class="headerlink" title="详细查看https://bbs.kanxue.com/thread-281836.htm#msg_header_h3_9"></a>详细查看<a href="https://bbs.kanxue.com/thread-281836.htm#msg_header_h3_9">https://bbs.kanxue.com/thread-281836.htm#msg_header_h3_9</a></h2><h2 id="扩大节"><a href="#扩大节" class="headerlink" title="扩大节"></a>扩大节</h2><p> 最好只扩大最后一个节</p><p>1、分配一块新的空间了，大小为S</p><p>2、将最后一个节的SizeOfRawData和VirtualSize改成N</p><p>​N &#x3D; （SizeOfRawData或者VirtualSize内存对齐后的值）+S</p><p>3、修改SizeOfImage大小</p><p>4、如果不能执行就在节的末尾的Characteristics属性改成具有可执行的功能</p><h2 id="新增节"><a href="#新增节" class="headerlink" title="新增节"></a>新增节</h2><p> 1、先判断节表有没有空间可以新增一个节表成员</p><p>2、在节表新增一个成员</p><p>3、修改PE头中节的数量</p><p>4、修改SizeOfImage大小</p><p>5、在原有数据的最后，新增一个节的数据（内存对齐整数）</p><p>6、修正新增节表属性</p><h2 id="合并节"><a href="#合并节" class="headerlink" title="合并节"></a>合并节</h2><p>先拉伸，后合并，需要用拉伸后的对齐法进行合并</p><p>1、按照内存对齐展开</p><p>2、将第一个节的内存大小、文件大小改成一样</p><p>​Max &#x3D; SizeOfRawData&gt;VirtualSize ?SizeOfRawData:VirtualSize</p><p>​SizeOfRawData&#x3D;VirtualSize&#x3D;最后一个节的VirtualAddress+Max-SizeOfHeaders内存对齐后的大小</p><p>3、将第一个节的属性改为包含所有节的属性</p><p>4、修改节的数量为1</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【对线程的初认识和初步理解与平衡堆栈】Youngter-drive</title>
       <link href="/2024/07/15/%E3%80%90%E5%AF%B9%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9D%E8%AE%A4%E8%AF%86%E5%92%8C%E5%88%9D%E6%AD%A5%E7%90%86%E8%A7%A3%E3%80%91Youngter-drive/"/>
       <url>/2024/07/15/%E3%80%90%E5%AF%B9%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9D%E8%AE%A4%E8%AF%86%E5%92%8C%E5%88%9D%E6%AD%A5%E7%90%86%E8%A7%A3%E3%80%91Youngter-drive/</url>
@@ -17,7 +30,7 @@
     
     
     <entry>
-      <title>RVA与FOA的转换 和 空白区域添加代码</title>
+      <title>【PE】RVA与FOA的转换 和 空白区域添加代码</title>
       <link href="/2024/07/12/RVA%E4%B8%8EFOA%E7%9A%84%E8%BD%AC%E6%8D%A2%20%E5%92%8C%20%E7%A9%BA%E7%99%BD%E5%8C%BA%E5%9F%9F%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81/"/>
       <url>/2024/07/12/RVA%E4%B8%8EFOA%E7%9A%84%E8%BD%AC%E6%8D%A2%20%E5%92%8C%20%E7%A9%BA%E7%99%BD%E5%8C%BA%E5%9F%9F%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81/</url>
       
@@ -43,7 +56,7 @@
     
     
     <entry>
-      <title>DOS头-PE头-节表属性说明</title>
+      <title>【PE】DOS头-PE头-节表属性说明</title>
       <link href="/2024/07/11/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7/"/>
       <url>/2024/07/11/dos-pe-%E8%8A%82%E8%A1%A8%E5%B1%9E%E6%80%A7/</url>
       
@@ -69,7 +82,7 @@
     
     
     <entry>
-      <title>PE结构的总概与文件格式特征</title>
+      <title>【PE】PE结构的总概与文件格式特征</title>
       <link href="/2024/07/09/PE%E7%BB%93%E6%9E%84/"/>
       <url>/2024/07/09/PE%E7%BB%93%E6%9E%84/</url>
       
@@ -137,17 +150,6 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/css/transpancy.css"/>
       <url>/css/transpancy.css</url>
@@ -159,9 +161,9 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>navigate</title>
+      <link href="/navigate/index.html"/>
+      <url>/navigate/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -170,9 +172,20 @@
     
     
     <entry>
-      <title>navigate</title>
-      <link href="/navigate/index.html"/>
-      <url>/navigate/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
