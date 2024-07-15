@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>【对线程的初认识和初步理解】Youngter-drive</title>
+      <title>【对线程的初认识和初步理解与平衡堆栈】Youngter-drive</title>
       <link href="/2024/07/15/%E3%80%90%E5%AF%B9%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9D%E8%AE%A4%E8%AF%86%E5%92%8C%E5%88%9D%E6%AD%A5%E7%90%86%E8%A7%A3%E3%80%91Youngter-drive/"/>
       <url>/2024/07/15/%E3%80%90%E5%AF%B9%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%88%9D%E8%AE%A4%E8%AF%86%E5%92%8C%E5%88%9D%E6%AD%A5%E7%90%86%E8%A7%A3%E3%80%91Youngter-drive/</url>
       
@@ -137,22 +137,22 @@
     
     
     <entry>
-      <title></title>
-      <link href="/css/transpancy.css"/>
-      <url>/css/transpancy.css</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
-        <content type="html"><![CDATA[/* 文章页背景 */.layout_post>#post {    /* 以下代表透明度为0.7 可以自行修改*/    background: rgba(255, 255, 255, .7);}/* 所有页面背景 */#aside_content .card-widget,#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .7);}/*侧边卡片的透明度 */:root {    --card-bg: rgba(255, 255, 255, .7);}/* 页脚透明 */#footer {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .0);}]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title></title>
+      <link href="/css/transpancy.css"/>
+      <url>/css/transpancy.css</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[/* 文章页背景 */.layout_post>#post {    /* 以下代表透明度为0.7 可以自行修改*/    background: rgba(255, 255, 255, .7);}/* 所有页面背景 */#aside_content .card-widget,#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .7);}/*侧边卡片的透明度 */:root {    --card-bg: rgba(255, 255, 255, .7);}/* 页脚透明 */#footer {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .0);}]]></content>
       
     </entry>
     
