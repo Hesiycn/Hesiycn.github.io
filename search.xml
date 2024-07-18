@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>【BUU】Oruga 内心os：我觉得应该叫滑冰（</title>
+      <link href="/2024/07/18/%E3%80%90BUU%E3%80%91Oruga/"/>
+      <url>/2024/07/18/%E3%80%90BUU%E3%80%91Oruga/</url>
+      
+        <content type="html"><![CDATA[<h1 id="【BUU】Oruga"><a href="#【BUU】Oruga" class="headerlink" title="【BUU】Oruga"></a>【BUU】Oruga</h1><h2 id="内心-os：我觉得应该叫滑冰（"><a href="#内心-os：我觉得应该叫滑冰（" class="headerlink" title="内心 os：我觉得应该叫滑冰（"></a>内心 os：我觉得应该叫滑冰（</h2><p>拖进 ida 看 hex 下面有个地方像是地图</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/Oruga/map.png" alt="map"></p><p>main 函数进入后有个疑似是上下左右的部分</p><p>W：上 E：右 J：左 M 下</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/Oruga/%E4%B8%8A%E4%B8%8B%E5%B7%A6%E5%8F%B3.png" alt="上下左右"></p><p>把地图换成一种更明确的方式</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/Oruga/MZAE.png" alt="MZAE"></p><p>还是觉得匪夷所思，找了个 wp 看了一下，</p><p>发现是宝可梦冰面解密的那种迷宫，遇到障碍物之前是不会停下的</p><p>所输入的就是 flag</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【WKCTF】so_easy</title>
       <link href="/2024/07/17/%E3%80%90WKCTF%E3%80%91so_easy/"/>
       <url>/2024/07/17/%E3%80%90WKCTF%E3%80%91so_easy/</url>
