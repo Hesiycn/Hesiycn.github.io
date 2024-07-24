@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>【二叉树】【数据结构】【buu】[GUET-CTF2019]number_game</title>
+      <title>【另一种smc】【对于time()与rand的一种处理方法】【buu】[网鼎杯 2020 青龙组]jocker</title>
       <link href="/2024/07/24/%E3%80%90%E5%8F%A6%E4%B8%80%E7%A7%8Dsmc%E3%80%91%E3%80%90%E5%AF%B9%E4%BA%8Etime()%E4%B8%8Erand%E7%9A%84%E4%B8%80%E7%A7%8D%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E3%80%91%E3%80%90buu%E3%80%91%5B%E7%BD%91%E9%BC%8E%E6%9D%AF%202020%20%E9%9D%92%E9%BE%99%E7%BB%84%5Djocker/"/>
       <url>/2024/07/24/%E3%80%90%E5%8F%A6%E4%B8%80%E7%A7%8Dsmc%E3%80%91%E3%80%90%E5%AF%B9%E4%BA%8Etime()%E4%B8%8Erand%E7%9A%84%E4%B8%80%E7%A7%8D%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95%E3%80%91%E3%80%90buu%E3%80%91%5B%E7%BD%91%E9%BC%8E%E6%9D%AF%202020%20%E9%9D%92%E9%BE%99%E7%BB%84%5Djocker/</url>
       
@@ -280,17 +280,6 @@
     
     
     <entry>
-      <title></title>
-      <link href="/css/transpancy.css"/>
-      <url>/css/transpancy.css</url>
-      
-        <content type="html"><![CDATA[/* 文章页背景 */.layout_post>#post {    /* 以下代表透明度为0.7 可以自行修改*/    background: rgba(255, 255, 255, .7);}/* 所有页面背景 */#aside_content .card-widget,#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .7);}/*侧边卡片的透明度 */:root {    --card-bg: rgba(255, 255, 255, .7);}/* 页脚透明 */#footer {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .0);}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>link</title>
       <link href="/link/index.html"/>
       <url>/link/index.html</url>
@@ -302,9 +291,9 @@
     
     
     <entry>
-      <title>navigate</title>
-      <link href="/navigate/index.html"/>
-      <url>/navigate/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -313,9 +302,20 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title></title>
+      <link href="/css/transpancy.css"/>
+      <url>/css/transpancy.css</url>
+      
+        <content type="html"><![CDATA[/* 文章页背景 */.layout_post>#post {    /* 以下代表透明度为0.7 可以自行修改*/    background: rgba(255, 255, 255, .7);}/* 所有页面背景 */#aside_content .card-widget,#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .7);}/*侧边卡片的透明度 */:root {    --card-bg: rgba(255, 255, 255, .7);}/* 页脚透明 */#footer {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .0);}]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>navigate</title>
+      <link href="/navigate/index.html"/>
+      <url>/navigate/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
