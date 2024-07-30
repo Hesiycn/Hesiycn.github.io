@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title></title>
+      <title>【buu】[GXYCTF2019]simple CPP</title>
       <link href="/2024/07/30/%E3%80%90buu%E3%80%91%5BGXYCTF2019%5Dsimple%20CPP/"/>
       <url>/2024/07/30/%E3%80%90buu%E3%80%91%5BGXYCTF2019%5Dsimple%20CPP/</url>
       
@@ -317,17 +317,6 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>navigate</title>
       <link href="/navigate/index.html"/>
       <url>/navigate/index.html</url>
@@ -342,6 +331,17 @@
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
