@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2024/07/30/%E3%80%90buu%E3%80%91%5BGXYCTF2019%5Dsimple%20CPP/"/>
+      <url>/2024/07/30/%E3%80%90buu%E3%80%91%5BGXYCTF2019%5Dsimple%20CPP/</url>
+      
+        <content type="html"><![CDATA[<h1 id="【buu】-GXYCTF2019-simple-CPP"><a href="#【buu】-GXYCTF2019-simple-CPP" class="headerlink" title="【buu】[GXYCTF2019]simple CPP"></a>【buu】[GXYCTF2019]simple CPP</h1><hr><p>这题主要是分析函数，就是 CPP 反编译后的那一坨有点绕</p><p>也是看了别的师傅的 wp 才慢慢理解</p><hr><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/%5BGXYCTF2019%5Dsimple%20CPP/put_in.png" alt="put_in"></p><p>这里是动调后才知道这个函数是输入，把函数名字更改更好理解</p><p>下面的 if 判断语句中的 **v40 - 5 &gt; 25 **已经表明了输入的字符长度不能超过 <strong>30</strong></p><p>然后是一段意义不明的函数段</p><hr><p>接着到了这里</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/%5BGXYCTF2019%5Dsimple%20CPP/xor_encry.png" alt="xor_encry"></p><p>这里也有一些意义不明</p><p>动调发现，v41 和 qword_7FF7A0466060 都百年成了 0x1F</p><p>所以 v9 的值就是输入的 flag</p><p>走完循环后 v10 就变成了 <strong>i_will_check_is_debug_or_not</strong></p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/%5BGXYCTF2019%5Dsimple%20CPP/v12.png" alt="v12"></p><p>v6 就是输入的 flag 和 v10 进行逐步异或</p><hr><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/%5BGXYCTF2019%5Dsimple%20CPP/%E8%B5%8B%E5%80%BC.png" alt="赋值"></p><p>这也是有点抽象 v43 上面已经说了不能超过 30</p><p>而这里给了个 <strong>if ( (int)v43 &gt; 30 )和 if ( (int)v43 &lt;&#x3D; 0 )</strong></p><p>否则会前往表示 flag 格式错误的语句</p><p>看正确情况下的赋值语句，这里是将输入的 flag 每 8 位分成一组，分别赋值给 v14，v13，v12，v11，这里 v11 只有 4 位前三个都是 8 位</p><p>下面有一小段没有截图截到</p><p>那是把 v14，v13，v12，v11 又赋值给 v18[0]，v18[1]，v18[2]，v18[3]</p><hr><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/%5BGXYCTF2019%5Dsimple%20CPP/%E8%B5%8B%E5%80%BC2%E4%B8%8E%E5%AF%86%E6%96%87.png" alt="赋值2与密文"></p><p>正确的情况下是不会走 lable_27 的</p><p>所以应该是走 lable_28</p><p>这里是一大串赋值与运算操作</p><p>关键部分是那几个 if 语句</p><p>用 z3 约束求解器把</p><p>求完的值拼起来追溯到头就是 flag 和 v10 异或后的值</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> z3 <span class="keyword">import</span>*</span><br><span class="line">v0 = BitVec(<span class="string">&#x27;v0&#x27;</span>, <span class="number">64</span>)</span><br><span class="line">v1 = BitVec(<span class="string">&#x27;v1&#x27;</span>, <span class="number">64</span>)</span><br><span class="line">v2 = BitVec(<span class="string">&#x27;v2&#x27;</span>, <span class="number">64</span>)</span><br><span class="line">v3 = BitVec(<span class="string">&#x27;v3&#x27;</span>, <span class="number">64</span>)</span><br><span class="line"></span><br><span class="line">s = Solver()</span><br><span class="line"><span class="comment">#添加约束条件</span></span><br><span class="line">s.add(v2 &amp; ~v0 == <span class="number">1176889593874</span>)</span><br><span class="line">s.add((v2 &amp; ~v1) &amp; v0 | v2 &amp; ((v1 &amp; v0) | v1 &amp; ~v0 | ~(v1 | v0)) == <span class="number">577031497978884115</span>)</span><br><span class="line">s.add((v2 &amp; ~v0) | (v1 &amp; v0) | (v2 &amp; ~v1) | (v0 &amp; ~v1) == <span class="number">4483974544037412639</span>)</span><br><span class="line">s.add(((v2 &amp; ~v0) | (v1 &amp; v0) | (v2 &amp; ~v1) | (v0 &amp; ~v1))^v3 == <span class="number">4483974543195470111</span>)</span><br><span class="line">s.add(((v2 &amp; ~v0) | (v1 &amp; v0) | v1 &amp; v2) == (~v0 &amp; v2 | <span class="number">864693332579200012</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查是否有解</span></span><br><span class="line"><span class="keyword">if</span> s.check() == sat:</span><br><span class="line">    <span class="comment"># 如果有解，打印模型</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;6666&quot;</span>)</span><br><span class="line">    <span class="comment"># print chr</span></span><br><span class="line">    m = s.model()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;v0 =&quot;</span>, <span class="built_in">hex</span>(m[v0].as_long()))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;v1 =&quot;</span>, <span class="built_in">hex</span>(m[v1].as_long()))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;v2 =&quot;</span>, <span class="built_in">hex</span>(m[v2].as_long()))</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;v3 =&quot;</span>, <span class="built_in">hex</span>(m[v3].as_long()))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;No solution exists&quot;</span>)</span><br></pre></td></tr></table></figure><p>然后拼起来和 v10 进行异或就是 flag</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">enc = [<span class="number">0x3e</span>,<span class="number">0x3a</span>,<span class="number">0x46</span>,<span class="number">0x05</span>,<span class="number">0x33</span>,<span class="number">0x28</span>,<span class="number">0x6f</span>,<span class="number">0x0d</span>,<span class="number">0xc</span>,<span class="number">0x00</span>,<span class="number">0x02</span>,<span class="number">0x01</span>,<span class="number">0x30</span>,<span class="number">0x08</span>,<span class="number">0x2c</span>,<span class="number">0x0c</span>,<span class="number">0x8</span>,<span class="number">0x02</span>,<span class="number">0x07</span>,<span class="number">0x17</span>,<span class="number">0x15</span>,<span class="number">0x3e</span>,<span class="number">0x30</span>,<span class="number">0x13</span>,<span class="number">0x32</span>,<span class="number">0x31</span>,<span class="number">0x06</span>,<span class="number">0x00</span>]</span><br><span class="line">v12 = <span class="string">&#x27;i_will_check_is_debug_or_not&#x27;</span></span><br><span class="line">flag =<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(enc)-<span class="number">1</span>):</span><br><span class="line">    flag += <span class="built_in">chr</span>(<span class="built_in">ord</span>(v12[i%<span class="number">27</span>]) ^ enc[i])</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure><p>这里程序执行完会发现不对</p><p>原题这里给了段 hint 第二组数据为 e!P0or_a，但是 buu 没有给</p><p>所以只要把相应部位换成 e!P0or_a 即可</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【unity逆向】【安卓re】【buu】[MRCTF2020]PixelShooter</title>
       <link href="/2024/07/29/%E3%80%90unity%E9%80%86%E5%90%91%E3%80%91%E3%80%90%E5%AE%89%E5%8D%93re%E3%80%91%E3%80%90buu%E3%80%91%5BMRCTF2020%5DPixelShooter/"/>
       <url>/2024/07/29/%E3%80%90unity%E9%80%86%E5%90%91%E3%80%91%E3%80%90%E5%AE%89%E5%8D%93re%E3%80%91%E3%80%90buu%E3%80%91%5BMRCTF2020%5DPixelShooter/</url>
@@ -304,9 +317,9 @@
     
     
     <entry>
-      <title>navigate</title>
-      <link href="/navigate/index.html"/>
-      <url>/navigate/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -315,9 +328,9 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title>navigate</title>
+      <link href="/navigate/index.html"/>
+      <url>/navigate/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
