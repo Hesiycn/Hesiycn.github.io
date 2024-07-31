@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>【buu】[GXYCTF2019]simple CPP</title>
+      <title>【buu】【另一种抽象的xxtea】[2019红帽杯]xx</title>
       <link href="/2024/07/31/%E3%80%90buu%E3%80%91%E3%80%90%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%8A%BD%E8%B1%A1%E7%9A%84xxtea%E3%80%91%5B2019%E7%BA%A2%E5%B8%BD%E6%9D%AF%5Dxx/"/>
       <url>/2024/07/31/%E3%80%90buu%E3%80%91%E3%80%90%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%8A%BD%E8%B1%A1%E7%9A%84xxtea%E3%80%91%5B2019%E7%BA%A2%E5%B8%BD%E6%9D%AF%5Dxx/</url>
       
@@ -319,17 +319,6 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/css/transpancy.css"/>
       <url>/css/transpancy.css</url>
@@ -341,9 +330,9 @@
     
     
     <entry>
-      <title>navigate</title>
-      <link href="/navigate/index.html"/>
-      <url>/navigate/index.html</url>
+      <title>tags</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -352,9 +341,20 @@
     
     
     <entry>
-      <title>tags</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>navigate</title>
+      <link href="/navigate/index.html"/>
+      <url>/navigate/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
