@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>【buu】 [GKCTF 2021]QQQQT</title>
+      <link href="/2024/08/02/%5BGKCTF%202021%5DQQQQT/"/>
+      <url>/2024/08/02/%5BGKCTF%202021%5DQQQQT/</url>
+      
+        <content type="html"><![CDATA[<h1 id="【buu】-GKCTF-2021-QQQQT"><a href="#【buu】-GKCTF-2021-QQQQT" class="headerlink" title="【buu】 [GKCTF 2021]QQQQT"></a>【buu】 [GKCTF 2021]QQQQT</h1><hr><p>这题吧，不难，主要是用exeinfope光看是不是upx加壳没仔细看下面的virtualbox了</p><hr><p>查壳</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/QQQQT/check_package.png" alt="check_package"></p><p>看ep是.text实际上这是个 Virtual Box加壳</p><p>去找工具EnigmaVBUnpacker脱壳</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/QQQQT/unpackage.png" alt="unpackage"></p><p>脱壳后会在文件所在的文件夹中新生成QQQQT_unpacked.exe</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/QQQQT/unpacked.png" alt="unpacked"></p><hr><p>用ida打开QQQQT_unpacked.exe</p><p>通过string找到密文</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/QQQQT/string.png" alt="string"></p><hr><p>跟进</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/QQQQT/base58.png" alt="base58"></p><p>疑似是base58</p><p><img src="https://hesiy-md-pic.oss-cn-beijing.aliyuncs.com/images/buu/QQQQT/flag.png" alt="flag"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【buu】【另一种抽象的xxtea】[2019红帽杯]xx</title>
       <link href="/2024/07/31/%E3%80%90buu%E3%80%91%E3%80%90%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%8A%BD%E8%B1%A1%E7%9A%84xxtea%E3%80%91%5B2019%E7%BA%A2%E5%B8%BD%E6%9D%AF%5Dxx/"/>
       <url>/2024/07/31/%E3%80%90buu%E3%80%91%E3%80%90%E5%8F%A6%E4%B8%80%E7%A7%8D%E6%8A%BD%E8%B1%A1%E7%9A%84xxtea%E3%80%91%5B2019%E7%BA%A2%E5%B8%BD%E6%9D%AF%5Dxx/</url>
@@ -319,11 +332,11 @@
     
     
     <entry>
-      <title></title>
-      <link href="/css/transpancy.css"/>
-      <url>/css/transpancy.css</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
       
-        <content type="html"><![CDATA[/* 文章页背景 */.layout_post>#post {    /* 以下代表透明度为0.7 可以自行修改*/    background: rgba(255, 255, 255, .7);}/* 所有页面背景 */#aside_content .card-widget,#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .7);}/*侧边卡片的透明度 */:root {    --card-bg: rgba(255, 255, 255, .7);}/* 页脚透明 */#footer {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .0);}]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -341,11 +354,11 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
+      <title></title>
+      <link href="/css/transpancy.css"/>
+      <url>/css/transpancy.css</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[/* 文章页背景 */.layout_post>#post {    /* 以下代表透明度为0.7 可以自行修改*/    background: rgba(255, 255, 255, .7);}/* 所有页面背景 */#aside_content .card-widget,#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .7);}/*侧边卡片的透明度 */:root {    --card-bg: rgba(255, 255, 255, .7);}/* 页脚透明 */#footer {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .0);}]]></content>
       
     </entry>
     
