@@ -397,17 +397,6 @@
     
     
     <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title></title>
       <link href="/css/transpancy.css"/>
       <url>/css/transpancy.css</url>
@@ -419,9 +408,9 @@
     
     
     <entry>
-      <title>navigate</title>
-      <link href="/navigate/index.html"/>
-      <url>/navigate/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -433,6 +422,28 @@
       <title>tags</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>navigate</title>
+      <link href="/navigate/index.html"/>
+      <url>/navigate/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
