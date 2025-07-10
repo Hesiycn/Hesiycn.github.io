@@ -410,9 +410,9 @@
     
     
     <entry>
-      <title>about</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -421,9 +421,20 @@
     
     
     <entry>
-      <title>categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>link</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>about</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -437,17 +448,6 @@
       <url>/css/transpancy.css</url>
       
         <content type="html"><![CDATA[/* 文章页背景 */.layout_post>#post {    /* 以下代表透明度为0.7 可以自行修改*/    background: rgba(255, 255, 255, .7);}/* 所有页面背景 */#aside_content .card-widget,#recent-posts>.recent-post-item,.layout_page>div:first-child:not(.recent-posts),.layout_post>#page,.layout_post>#post,.read-mode .layout_post>#post {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .7);}/*侧边卡片的透明度 */:root {    --card-bg: rgba(255, 255, 255, .7);}/* 页脚透明 */#footer {    /* 以下代表透明度为0.7 */    background: rgba(255, 255, 255, .0);}]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>link</title>
-      <link href="/link/index.html"/>
-      <url>/link/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
